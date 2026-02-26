@@ -981,6 +981,41 @@
         color: rgba(31, 34, 32, 0.7);
       }
 
+      .footer-thanks {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-thanks > span {
+        font-size: 1.02rem;
+        line-height: 1.35;
+      }
+
+      .planner-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.38rem;
+        text-decoration: none;
+        border: 1px solid rgba(31, 34, 32, 0.18);
+        border-radius: 999px;
+        padding: 0.36rem 0.72rem;
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 0.83rem;
+        letter-spacing: 0.04em;
+      }
+
+      .planner-link img {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+      }
+
+
       .modal {
         position: fixed;
         inset: 0;
@@ -1622,8 +1657,26 @@
       <div class="container">
         <p style="font-family:'Cormorant Garamond',serif;font-size:2rem">Diego &amp; Erika</p>
         <p style="margin-top:0.45rem">Gracias por ser parte de nuestra historia.</p>
+
+        <div class="footer-thanks">
+          <span>Especial agradecimiento a la mejor Wedding Planner del planeta</span>
+          <a
+            class="planner-link"
+            href="https://www.instagram.com/elisachaconwp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Elisa Chacon Wedding Planner"
+          >
+            <img
+              src="FotosWeb/png-transparent-logo-icon-instagram-logo-instagram-logo-purple-violet-text-thumbnail.png"
+              alt="Logo de Instagram"
+            />
+            <span>@elisachaconwp</span>
+          </a>
+        </div>
       </div>
     </footer>
+
 
     <div class="modal" id="galleryModal" aria-hidden="true">
       <div class="modal-inner">
