@@ -1242,7 +1242,16 @@
     </header>
 
     <section class="hero" id="inicio">
-      <img class="hero-bg" src="FotosWeb/header.png" alt="Header Erika y Diego" loading="eager" />
+      <img
+        class="hero-bg"
+        src="FotosWeb/header-1280.jpg"
+        srcset="FotosWeb/header-768.jpg 768w, FotosWeb/header-1280.jpg 1280w, FotosWeb/header-1536.jpg 1536w"
+        sizes="100vw"
+        alt="Header Erika y Diego"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
 
       <div class="container hero-content reveal">
         <p class="location">La Boda De:</p>
