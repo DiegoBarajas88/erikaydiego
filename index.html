@@ -863,27 +863,6 @@
         max-width: 52ch;
       }
 
-      .hotel-hero-link {
-        margin-top: 1rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        border-radius: 999px;
-        padding: 0.52rem 1rem;
-        color: #fff;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        background: rgba(255, 255, 255, 0.08);
-        transition: transform 0.2s ease, background 0.2s ease;
-      }
-
-      .hotel-hero-link:hover {
-        transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.18);
-      }
 
       .hotel-content {
         padding-top: 2.9rem;
@@ -981,31 +960,20 @@
         margin-top: 1rem;
         border: 1px solid rgba(31, 34, 32, 0.12);
         border-radius: 1rem;
-        background: rgba(255, 255, 255, 0.74);
-        padding: 0.95rem 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
-        flex-wrap: wrap;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.82), rgba(232, 218, 195, 0.46));
+        padding: 1.15rem 1rem;
+        display: grid;
+        gap: 0.5rem;
       }
 
-      .hotel-cta-card p {
+      .hotel-cta-card strong {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.65rem;
+        font-size: clamp(1.7rem, 3.5vw, 2.3rem);
         line-height: 1;
       }
 
-      .hotel-cta-card a {
-        text-decoration: none;
-        border: 1px solid rgba(31, 34, 32, 0.2);
-        border-radius: 999px;
-        padding: 0.48rem 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 0.68rem;
-        color: var(--ink);
-        background: #fff;
+      .hotel-cta-card p {
+        color: rgba(31, 34, 32, 0.78);
       }
 
       .hotel-map-grid {
@@ -1669,9 +1637,6 @@
               Un entorno frente al mar para descansar, disfrutar y compartir el fin de semana de
               celebración en Santa Marta.
             </p>
-            <a class="hotel-hero-link" href="https://www.taybeach.com.co" target="_blank" rel="noopener noreferrer">
-              Ver hotel
-            </a>
           </div>
         </div>
 
@@ -1681,7 +1646,7 @@
             <h2 class="section-title">Hotel y cómo llegar</h2>
             <p class="section-subtitle">
               Este será el punto de encuentro para nuestros invitados. Te dejamos una galería,
-              acceso directo al hotel y el mapa para ubicarte fácilmente.
+              una nota importante sobre hospedaje y el mapa para ubicarte fácilmente.
             </p>
           </div>
 
@@ -1695,10 +1660,12 @@
           </div>
 
           <div class="hotel-cta-card reveal">
-            <p>¿Quieres ver más habitaciones y planes del hotel?</p>
-            <a href="https://www.taybeach.com.co" target="_blank" rel="noopener noreferrer">
-              Explorar Tay Beach
-            </a>
+            <strong>Hospedaje con tarifa especial para nuestros invitados</strong>
+            <p>
+              Tay Beach Hotel nos ha otorgado una tarifa preferencial por la boda. Durante la
+              próxima semana nos estaremos comunicando con cada uno para revisar la reserva y
+              compartirles el precio especial disponible para los invitados.
+            </p>
           </div>
 
           <div class="hotel-map-grid">
