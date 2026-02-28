@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diego &amp; Erika | Nuestra Boda</title>
+    <title>Erika &amp; Diego | Nuestra Boda</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,6 +11,14 @@
       rel="stylesheet"
     />
     <style>
+      @font-face {
+        font-family: "NT Fabulous";
+        src: local("NT FABULOUS"), local("NT Fabulous Regular"), local("NT Fabulous");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
       :root {
         --ivory: #f8f3ea;
         --champagne: #e8dac3;
@@ -100,9 +108,14 @@
       }
 
       .brand {
-        font-family: "Cormorant Garamond", serif;
+        font-family: "NT Fabulous", "Cormorant Garamond", serif;
         letter-spacing: 0.12em;
         font-size: 0.95rem;
+      }
+
+      .couple-signature {
+        font-family: "NT Fabulous", "Cormorant Garamond", serif;
+        font-size: 2rem;
       }
 
       .nav-links {
@@ -178,8 +191,9 @@
       }
 
       .hero .title {
-        margin-top: 1rem;
+        margin-top: 1.25rem;
         font-size: clamp(2.6rem, 8vw, 6.7rem);
+        font-family: "NT Fabulous", "Cormorant Garamond", serif;
         font-weight: 400;
         line-height: 0.95;
       }
@@ -193,10 +207,18 @@
       }
 
       .hero .date {
-        margin-top: 1rem;
+        margin-top: 1.55rem;
         font-size: 1.05rem;
         letter-spacing: 0.13em;
         text-transform: uppercase;
+      }
+
+      .hero .event-date {
+        margin-top: 0.35rem;
+        font-size: 0.98rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.92;
       }
 
       .hero .intro {
@@ -206,6 +228,7 @@
       }
 
       .hero-actions {
+        margin-top: 2.2rem;
         display: flex;
         justify-content: center;
         gap: 0.85rem;
@@ -1227,13 +1250,11 @@
 
     <header class="top-nav" id="topNav">
       <nav class="container">
-        <div class="brand">DIEGO &amp; ERIKA</div>
+        <div class="brand">ERIKA &amp; DIEGO</div>
         <div class="nav-links">
-          <a href="#historia">Nuestra Historia</a>
           <a href="#countdown">Countdown</a>
           <a href="#schedule">Weekend</a>
           <a href="#dress">Dress Code</a>
-          <a href="#gallery">Galeria</a>
           <a href="#rsvp">RSVP</a>
           <a href="#ubicacion">Ubicacion</a>
           <a href="#faq">Preguntas</a>
@@ -1255,13 +1276,9 @@
 
       <div class="container hero-content reveal">
         <p class="location">La Boda De:</p>
-        <h1 class="title">Diego <span class="amp">&amp;</span> Erika</h1>
+        <h1 class="title">Erika <span class="amp">&amp;</span> Diego</h1>
         <p class="date">Santa Marta &bull; Colombia</p>
-        <p class="event-date">Sabado, 18 de abril de 2026 - 4:00 PM</p>
-        <p class="intro">
-          Hay momentos que se recuerdan para siempre. Este es uno de ellos y queremos
-          celebrarlo contigo en un fin de semana lleno de amor, musica y brindis inolvidables.
-        </p>
+        <p class="event-date">Del 17 al 19 de abril de 2026</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
           <a class="btn btn-secondary" href="#schedule">Ver agenda</a>
@@ -1270,59 +1287,6 @@
     </section>
 
     <main>
-      <section id="historia">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Nuestra Historia</span>
-            <h2 class="section-title">De una coincidencia a un para siempre</h2>
-            <p class="section-subtitle">
-              Desde el primer cafe hasta la decision de caminar juntos toda la vida,
-              cada capitulo nos trajo hasta aqui.
-            </p>
-          </div>
-
-          <div class="story-grid">
-            <article class="story-card reveal">
-              <img
-                loading="lazy"
-                src="FotosEyD/Foto2024.jpeg"
-                alt="Primer encuentro de los novios"
-              />
-              <div class="story-content">
-                <span class="story-time">2024</span>
-                <h3>Un si para nuestra promesa ante Dios</h3>
-                <p>Comenzamos este camino con fe, amor y la certeza de caminar juntos.</p>
-              </div>
-            </article>
-
-            <article class="story-card reveal">
-              <img
-                loading="lazy"
-                src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80"
-                alt="Viajes y aventuras en pareja"
-              />
-              <div class="story-content">
-                <span class="story-time">2025</span>
-                <h3>Dios trabajando nuestras heridas</h3>
-                <p>Aprendimos a sanar, crecer y sostenernos con amor en cada proceso.</p>
-              </div>
-            </article>
-
-            <article class="story-card reveal">
-              <img
-                loading="lazy"
-                src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80"
-                alt="Compromiso de los novios"
-              />
-              <div class="story-content">
-                <span class="story-time">2026</span>
-                <h3>El gran si</h3>
-                <p>Con el atardecer de testigo, dijimos si a comenzar nuestra nueva historia.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section id="countdown">
         <div class="container">
@@ -1368,6 +1332,11 @@
                 <span>17 Abril</span>
               </div>
               <div class="day-events">
+                <div class="schedule-card">
+                  <h4>Dia de playa</h4>
+                  <span class="time">12:00 PM</span>
+                  <p>Un plan relajado junto al mar para encontrarnos, descansar y disfrutar Santa Marta.</p>
+                </div>
                 <div class="schedule-card">
                   <h4>Welcome Night</h4>
                   <span class="time">8:00 PM</span>
@@ -1478,18 +1447,6 @@
         </div>
       </section>
 
-
-      <section id="gallery">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Galeria</span>
-            <h2 class="section-title">Momentos de los novios</h2>
-            <p class="section-subtitle">Haz clic en cualquier foto para verla en grande.</p>
-          </div>
-          <div class="gallery-grid" id="galleryGrid" aria-label="Galeria dinamica de fotos"></div>
-        </div>
-      </section>
-
       <section id="rsvp">
         <div class="container">
           <div class="section-heading reveal">
@@ -1513,6 +1470,7 @@
 
             <div class="rsvp-form-wrap reveal">
               <form id="rsvpForm" novalidate>
+                <input type="hidden" name="source" value="Landing Erika y Diego" />
                 <div class="field">
                   <label for="nombre">Nombre completo</label>
                   <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" />
@@ -1656,7 +1614,7 @@
 
     <footer>
       <div class="container">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:2rem">Diego &amp; Erika</p>
+        <p class="couple-signature">Erika &amp; Diego</p>
         <p style="margin-top:0.45rem">Gracias por ser parte de nuestra historia.</p>
 
         <div class="footer-thanks">
@@ -1677,17 +1635,6 @@
         </div>
       </div>
     </footer>
-
-
-    <div class="modal" id="galleryModal" aria-hidden="true">
-      <div class="modal-inner">
-        <button class="modal-close" id="closeModal" aria-label="Cerrar galeria">x</button>
-        <button class="modal-arrow prev" id="prevPhoto" aria-label="Foto anterior">&lt;</button>
-        <button class="modal-arrow next" id="nextPhoto" aria-label="Siguiente foto">&gt;</button>
-        <img id="modalImage" alt="Vista ampliada de galeria" />
-        <p class="modal-caption" id="modalCaption"></p>
-      </div>
-    </div>
 
     <script>
       const topNav = document.getElementById("topNav");
@@ -1750,114 +1697,6 @@
       );
 
       revealItems.forEach((item) => observer.observe(item));
-
-      const galleryData = [
-        {
-          src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1200&q=80",
-          caption: "Compromiso",
-          shape: "tall"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80",
-          caption: "Sesion preboda",
-          shape: "wide"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&q=80",
-          caption: "Atardecer"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=1200&q=80",
-          caption: "Road trip",
-          shape: "tall"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80",
-          caption: "Celebracion"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1537907510278-a4d0e8dc1fb9?auto=format&fit=crop&w=1200&q=80",
-          caption: "Naturaleza",
-          shape: "wide"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-          caption: "Brindis"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
-          caption: "Sonrisas"
-        },
-        {
-          src: "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=80",
-          caption: "Siempre juntos"
-        }
-      ];
-
-      const galleryGrid = document.getElementById("galleryGrid");
-      const modal = document.getElementById("galleryModal");
-      const modalImage = document.getElementById("modalImage");
-      const modalCaption = document.getElementById("modalCaption");
-      const closeModal = document.getElementById("closeModal");
-      const nextPhoto = document.getElementById("nextPhoto");
-      const prevPhoto = document.getElementById("prevPhoto");
-      let currentPhoto = 0;
-
-      function renderGallery() {
-        galleryGrid.innerHTML = galleryData
-          .map((photo, index) => {
-            const shapeClass = photo.shape ? ` ${photo.shape}` : "";
-            return `
-              <button class="gallery-item${shapeClass}" data-index="${index}" data-caption="${photo.caption}">
-                <img loading="lazy" src="${photo.src}" alt="${photo.caption}" />
-              </button>
-            `;
-          })
-          .join("");
-      }
-
-      function openPhoto(index) {
-        currentPhoto = index;
-        modalImage.src = galleryData[currentPhoto].src;
-        modalCaption.textContent = galleryData[currentPhoto].caption;
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
-      }
-
-      function changePhoto(direction) {
-        currentPhoto = (currentPhoto + direction + galleryData.length) % galleryData.length;
-        openPhoto(currentPhoto);
-      }
-
-      renderGallery();
-
-      galleryGrid.addEventListener("click", (event) => {
-        const card = event.target.closest(".gallery-item");
-        if (!card) return;
-        openPhoto(Number(card.dataset.index));
-      });
-
-      closeModal.addEventListener("click", () => {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-      });
-
-      nextPhoto.addEventListener("click", () => changePhoto(1));
-      prevPhoto.addEventListener("click", () => changePhoto(-1));
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          modal.classList.remove("open");
-          modal.setAttribute("aria-hidden", "true");
-        }
-      });
-
-      window.addEventListener("keydown", (event) => {
-        if (!modal.classList.contains("open")) return;
-        if (event.key === "Escape") modal.classList.remove("open");
-        if (event.key === "ArrowRight") changePhoto(1);
-        if (event.key === "ArrowLeft") changePhoto(-1);
-      });
 
       const hotelGalleryData = [
         { src: "Hotel/Fotos%20Hotel/foto.webp", caption: "Tay Beach" },
@@ -1954,17 +1793,20 @@
       }
 
 
+      const RSVP_WEBAPP_URL = "REEMPLAZAR_CON_URL_DE_APPS_SCRIPT";
       const rsvpForm = document.getElementById("rsvpForm");
       const formNote = document.getElementById("formNote");
 
-      rsvpForm.addEventListener("submit", (event) => {
+      rsvpForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(rsvpForm);
         const payload = {
           nombre: String(formData.get("nombre") || "").trim(),
-          invitados: Number(formData.get("invitados")),
-          asistencia: String(formData.get("asistencia") || ""),
+          invitados: String(formData.get("invitados") || "").trim(),
+          asistencia: String(formData.get("asistencia") || "").trim(),
           mensaje: String(formData.get("mensaje") || "").trim(),
+          source: String(formData.get("source") || "Landing Erika y Diego").trim(),
+          userAgent: window.navigator.userAgent,
           timestamp: new Date().toISOString()
         };
 
@@ -1974,13 +1816,35 @@
           return;
         }
 
-        const existing = JSON.parse(localStorage.getItem("wedding-rsvp-list") || "[]");
-        existing.push(payload);
-        localStorage.setItem("wedding-rsvp-list", JSON.stringify(existing));
+        if (!RSVP_WEBAPP_URL || RSVP_WEBAPP_URL.includes("REEMPLAZAR")) {
+          formNote.className = "form-note error";
+          formNote.textContent = "Falta conectar el RSVP con Google Apps Script para enviar correo y guardar la confirmacion.";
+          return;
+        }
 
-        formNote.className = "form-note success";
-        formNote.textContent = `Gracias ${payload.nombre}, tu confirmacion fue registrada.`;
-        rsvpForm.reset();
+        const body = new URLSearchParams();
+        Object.entries(payload).forEach(([key, value]) => body.append(key, value));
+
+        formNote.className = "form-note";
+        formNote.textContent = "Enviando confirmacion...";
+
+        try {
+          await fetch(RSVP_WEBAPP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+            body: body.toString()
+          });
+
+          formNote.className = "form-note success";
+          formNote.textContent = `Gracias ${payload.nombre}, tu confirmacion fue enviada.`;
+          rsvpForm.reset();
+        } catch (error) {
+          formNote.className = "form-note error";
+          formNote.textContent = "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
+        }
       });
     </script>
   </body>
