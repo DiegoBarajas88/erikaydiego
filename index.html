@@ -159,7 +159,7 @@
         min-height: 100vh;
         isolation: isolate;
         display: grid;
-        align-items: center;
+        align-items: start;
       }
 
       .hero .hero-poster,
@@ -192,7 +192,12 @@
       .hero-content {
         color: #ffffff;
         text-align: center;
-        padding-top: 5rem;
+        padding-top: 0;
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        transform: translateY(-14vh);
       }
 
       .hero .location {
@@ -1253,7 +1258,8 @@
         }
 
         .hero-content {
-          padding-top: 6rem;
+          min-height: 100vh;
+          transform: translateY(-11vh);
         }
 
         .hero .title {
