@@ -603,6 +603,31 @@
       }
 
 
+      .gifts-card {
+        width: min(820px, 100%);
+        margin-inline: auto;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.82), rgba(232, 218, 195, 0.48));
+        border: 1px solid rgba(31, 34, 32, 0.12);
+        border-radius: 1.2rem;
+        padding: 2rem 1.3rem;
+        text-align: center;
+        box-shadow: 0 18px 34px rgba(31, 34, 32, 0.08);
+      }
+
+      .gifts-card strong {
+        display: block;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4.6vw, 3rem);
+        line-height: 1.04;
+      }
+
+      .gifts-card p {
+        width: min(58ch, 100%);
+        margin: 0.9rem auto 0;
+        color: rgba(31, 34, 32, 0.78);
+      }
+
+
       .gallery-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1260,8 +1285,8 @@
           <a href="#schedule">Weekend</a>
           <a href="#dress">Dress Code</a>
           <a href="#rsvp">RSVP</a>
-          <a href="#ubicacion">Ubicacion</a>
-          <a href="#faq">Preguntas</a>
+          <a href="#regalos">Regalos</a>
+          <a href="#ubicacion">Ubicación</a>
         </div>
       </nav>
     </header>
@@ -1279,7 +1304,7 @@
       />
 
       <div class="container hero-content reveal">
-        <p class="location">La Boda De:</p>
+        <p class="location">La boda de:</p>
         <h1 class="title">Erika <span class="amp">&amp;</span> Diego</h1>
         <p class="date">Santa Marta &bull; Colombia</p>
         <p class="event-date">Del 17 al 19 de abril de 2026</p>
@@ -1297,12 +1322,12 @@
           <div class="countdown-wrap reveal">
             <div class="section-heading">
               <span class="eyebrow">Countdown</span>
-              <h2 class="section-title">Cada segundo nos acerca al gran dia</h2>
+              <h2 class="section-title">Cada segundo nos acerca al gran día</h2>
             </div>
             <div class="count-grid" aria-live="polite">
               <div class="count-item">
                 <strong id="days">0</strong>
-                <span>Dias</span>
+                <span>Días</span>
               </div>
               <div class="count-item">
                 <strong id="hours">0</strong>
@@ -1337,33 +1362,33 @@
               </div>
               <div class="day-events">
                 <div class="schedule-card">
-                  <h4>Dia de playa</h4>
+                  <h4>Día de playa</h4>
                   <span class="time">12:00 PM</span>
                   <p>Un plan relajado junto al mar para encontrarnos, descansar y disfrutar Santa Marta.</p>
                 </div>
                 <div class="schedule-card">
                   <h4>Welcome Night</h4>
                   <span class="time">8:00 PM</span>
-                  <p>Coctel de bienvenida con musica en vivo para empezar el festejo.</p>
+                  <p>Cóctel de bienvenida con música en vivo para empezar el festejo.</p>
                 </div>
               </div>
             </article>
 
             <article class="day-column reveal">
               <div class="day-head">
-                <h3>Sabado</h3>
+                <h3>Sábado</h3>
                 <span>18 Abril</span>
               </div>
               <div class="day-events">
                 <div class="schedule-card">
                   <h4>Ceremonia</h4>
                   <span class="time">4:00 PM</span>
-                  <p>Intercambio de votos y ceremonia principal en el jardin central.</p>
+                  <p>Intercambio de votos y ceremonia principal en el jardín central.</p>
                 </div>
                 <div class="schedule-card">
                   <h4>Cena y fiesta</h4>
                   <span class="time">6:30 PM</span>
-                  <p>Cena de celebracion, brindis y pista abierta hasta la madrugada.</p>
+                  <p>Cena de celebración, brindis y pista abierta hasta la madrugada.</p>
                 </div>
               </div>
             </article>
@@ -1377,7 +1402,7 @@
                 <div class="schedule-card">
                   <h4>Brunch de despedida</h4>
                   <span class="time">11:00 AM</span>
-                  <p>Un ultimo encuentro para cerrar el fin de semana en familia.</p>
+                  <p>Un último encuentro para cerrar el fin de semana en familia.</p>
                 </div>
               </div>
             </article>
@@ -1443,10 +1468,32 @@
           </div>
 
           <div class="dress-inspo reveal">
-            <p>Quieres mas inspiracion para tu look?</p>
+            <p>¿Quieres más inspiración para tu look?</p>
             <a href="https://pin.it/6XE67OZxX" target="_blank" rel="noopener noreferrer">
               Ver board creativo en Pinterest
             </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="regalos">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Regalos</span>
+            <h2 class="section-title">Su presencia es nuestro mejor regalo</h2>
+            <p class="section-subtitle">
+              Lo más valioso para nosotros es compartir este fin de semana con ustedes.
+            </p>
+          </div>
+
+          <div class="gifts-card reveal">
+            <strong>El mejor regalo que nos pueden dar es su asistencia.</strong>
+            <p>
+              Estar con ustedes en este momento tan importante es más que suficiente para
+              nosotros. Su compañía, su cariño y el recuerdo de celebrar juntos valen más que
+              cualquier obsequio.
+            </p>
           </div>
         </div>
       </section>
@@ -1457,7 +1504,7 @@
             <span class="eyebrow">RSVP</span>
             <h2 class="section-title">Confirma tu asistencia</h2>
             <p class="section-subtitle">
-              Nos encantaria contar contigo. Por favor confirma antes del 15 de marzo de 2026.
+              Nos encantaría contar contigo. Por favor, confirma antes del 15 de marzo de 2026.
             </p>
           </div>
 
@@ -1465,10 +1512,10 @@
             <aside class="rsvp-info reveal">
               <h3 style="font-size:2rem">Detalles clave</h3>
               <ul>
-                <li>Fecha: Sabado, 18 de abril de 2026</li>
+                <li>Fecha: Sábado, 18 de abril de 2026</li>
                 <li>Hora de llegada sugerida: 3:30 PM</li>
-                <li>Lugar: Hacienda Santa Lucia</li>
-                <li>Codigo de vestimenta: Formal / Black Tie Optional</li>
+                <li>Lugar: Hacienda Santa Lucía</li>
+                <li>Código de vestimenta: Formal / Black Tie Optional</li>
               </ul>
             </aside>
 
@@ -1488,7 +1535,7 @@
                   <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" />
                 </div>
                 <div class="field">
-                  <label for="invitados">Numero de invitados</label>
+                  <label for="invitados">Número de invitados</label>
                   <input
                     id="invitados"
                     name="invitados"
@@ -1500,11 +1547,11 @@
                   />
                 </div>
                 <div class="field">
-                  <label for="asistencia">Asistiras</label>
+                  <label for="asistencia">¿Asistirás?</label>
                   <select id="asistencia" name="asistencia" required>
-                    <option value="">Selecciona una opcion</option>
-                    <option value="si">Si, con gusto</option>
-                    <option value="no">No podre asistir</option>
+                    <option value="">Selecciona una opción</option>
+                    <option value="si">Sí, con gusto</option>
+                    <option value="no">No podré asistir</option>
                   </select>
                 </div>
                 <div class="field">
@@ -1512,7 +1559,7 @@
                   <textarea
                     id="mensaje"
                     name="mensaje"
-                    placeholder="Si quieres, dejanos unas palabras..."
+                    placeholder="Si quieres, déjanos unas palabras..."
                   ></textarea>
                 </div>
                 <button class="btn btn-primary" type="submit">Enviar RSVP</button>
@@ -1530,7 +1577,7 @@
             <h2>Tay Beach Hotel</h2>
             <p>
               Un entorno frente al mar para descansar, disfrutar y compartir el fin de semana de
-              celebracion en Santa Marta.
+              celebración en Santa Marta.
             </p>
             <a class="hotel-hero-link" href="https://www.taybeach.com.co" target="_blank" rel="noopener noreferrer">
               Ver hotel
@@ -1540,25 +1587,25 @@
 
         <div class="container hotel-content">
           <div class="section-heading reveal">
-            <span class="eyebrow">Ubicacion</span>
-            <h2 class="section-title">Hotel y como llegar</h2>
+            <span class="eyebrow">Ubicación</span>
+            <h2 class="section-title">Hotel y cómo llegar</h2>
             <p class="section-subtitle">
-              Este sera el punto de encuentro para nuestros invitados. Te dejamos una galeria,
-              acceso directo al hotel y el mapa para ubicarte facilmente.
+              Este será el punto de encuentro para nuestros invitados. Te dejamos una galería,
+              acceso directo al hotel y el mapa para ubicarte fácilmente.
             </p>
           </div>
 
-          <div class="hotel-carousel reveal" aria-label="Galeria de fotos del hotel">
+          <div class="hotel-carousel reveal" aria-label="Galería de fotos del hotel">
             <div class="hotel-slider">
               <button class="hotel-nav-btn prev" id="hotelPrev" aria-label="Foto anterior">&lt;</button>
               <div class="hotel-track" id="hotelTrack"></div>
               <button class="hotel-nav-btn next" id="hotelNext" aria-label="Foto siguiente">&gt;</button>
             </div>
-            <div class="hotel-dots" id="hotelDots" aria-label="Seleccion de imagen del hotel"></div>
+            <div class="hotel-dots" id="hotelDots" aria-label="Selección de imagen del hotel"></div>
           </div>
 
           <div class="hotel-cta-card reveal">
-            <p>Quieres ver mas habitaciones y planes del hotel?</p>
+            <p>¿Quieres ver más habitaciones y planes del hotel?</p>
             <a href="https://www.taybeach.com.co" target="_blank" rel="noopener noreferrer">
               Explorar Tay Beach
             </a>
@@ -1569,9 +1616,9 @@
               <img
                 loading="lazy"
                 src="Hotel/Fotos%20Hotel/mapa-tay-1.jpg"
-                alt="Foto de referencia de la ubicacion del hotel"
+                alt="Foto de referencia de la ubicación del hotel"
               />
-              <figcaption>Foto de referencia de la ubicacion del hotel.</figcaption>
+              <figcaption>Foto de referencia de la ubicación del hotel.</figcaption>
             </figure>
             <div class="map-wrap reveal">
               <iframe
@@ -1582,43 +1629,6 @@
                 title="Mapa del hotel Tay Beach"
               ></iframe>
             </div>
-          </div>
-        </div>
-      </section>
-
-
-      <section id="faq">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span class="eyebrow">FAQ</span>
-            <h2 class="section-title">Preguntas frecuentes</h2>
-          </div>
-
-          <div class="faq-list">
-            <details class="reveal">
-              <summary>Puedo llevar acompanante?</summary>
-              <p>
-                Si tu invitacion incluye acompanante, te pedimos registrarlo en el formulario RSVP.
-              </p>
-            </details>
-            <details class="reveal">
-              <summary>Hay estacionamiento en el lugar?</summary>
-              <p>Si, la hacienda cuenta con valet parking y zona segura de estacionamiento.</p>
-            </details>
-            <details class="reveal">
-              <summary>Habra opciones vegetarianas?</summary>
-              <p>
-                Si, tendremos menu vegetariano y tambien opciones sin gluten. Indicalo por mensaje
-                en el RSVP.
-              </p>
-            </details>
-            <details class="reveal">
-              <summary>Puedo tomar fotos durante la ceremonia?</summary>
-              <p>
-                Queremos que vivas el momento con nosotros. Te pedimos guardar el celular durante
-                la ceremonia y disfrutar libremente despues.
-              </p>
-            </details>
           </div>
         </div>
       </section>
@@ -1677,7 +1687,7 @@
           hoursEl.textContent = "0";
           minsEl.textContent = "0";
           secsEl.textContent = "0";
-          noteEl.textContent = "Hoy celebramos juntos. El gran dia ya llego.";
+          noteEl.textContent = "Hoy celebramos juntos. El gran día ya llegó.";
           return;
         }
 
@@ -1820,7 +1830,7 @@
 
         if (!payload.nombre || !payload.invitados || !payload.asistencia) {
           formNote.className = "form-note error";
-          formNote.textContent = "Completa nombre, numero de invitados y asistencia.";
+          formNote.textContent = "Completa nombre, número de invitados y asistencia.";
           return;
         }
 
@@ -1828,7 +1838,7 @@
         formData.set("timestamp", new Date().toISOString());
 
         formNote.className = "form-note";
-        formNote.textContent = "Enviando confirmacion...";
+        formNote.textContent = "Enviando confirmación...";
 
         try {
           const response = await fetch(rsvpForm.action, {
@@ -1840,7 +1850,7 @@
           });
 
           if (!response.ok) {
-            let errorMessage = "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
+            let errorMessage = "No pudimos enviar tu confirmación. Intenta de nuevo en unos minutos.";
             try {
               const data = await response.json();
               if (data && data.message) {
@@ -1853,11 +1863,11 @@
           }
 
           formNote.className = "form-note success";
-          formNote.textContent = `Gracias ${payload.nombre}, tu confirmacion fue enviada.`;
+          formNote.textContent = `Gracias ${payload.nombre}, tu confirmación fue enviada.`;
           rsvpForm.reset();
         } catch (error) {
           formNote.className = "form-note error";
-          formNote.textContent = error.message || "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
+          formNote.textContent = error.message || "No pudimos enviar tu confirmación. Intenta de nuevo en unos minutos.";
         }
       });
     </script>
