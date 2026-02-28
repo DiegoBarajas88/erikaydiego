@@ -13,7 +13,11 @@
     <style>
       @font-face {
         font-family: "NT Fabulous";
-        src: local("NT FABULOUS"), local("NT Fabulous Regular"), local("NT Fabulous");
+        src:
+          url("Tipografia/NT%20Fabulous%20alternative%20(only%20personal%20use).otf") format("opentype"),
+          local("NT FABULOUS"),
+          local("NT Fabulous Regular"),
+          local("NT Fabulous");
         font-style: normal;
         font-weight: 400;
         font-display: swap;
@@ -1469,8 +1473,16 @@
             </aside>
 
             <div class="rsvp-form-wrap reveal">
-              <form id="rsvpForm" novalidate>
+              <form
+                id="rsvpForm"
+                novalidate
+                action="https://formsubmit.co/ajax/contacto@diegobarajas.com"
+                method="POST"
+              >
                 <input type="hidden" name="source" value="Landing Erika y Diego" />
+                <input type="hidden" name="_subject" value="Nuevo RSVP - Erika y Diego" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
                 <div class="field">
                   <label for="nombre">Nombre completo</label>
                   <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" />
@@ -1793,7 +1805,6 @@
       }
 
 
-      const RSVP_WEBAPP_URL = "REEMPLAZAR_CON_URL_DE_APPS_SCRIPT";
       const rsvpForm = document.getElementById("rsvpForm");
       const formNote = document.getElementById("formNote");
 
@@ -1804,10 +1815,7 @@
           nombre: String(formData.get("nombre") || "").trim(),
           invitados: String(formData.get("invitados") || "").trim(),
           asistencia: String(formData.get("asistencia") || "").trim(),
-          mensaje: String(formData.get("mensaje") || "").trim(),
-          source: String(formData.get("source") || "Landing Erika y Diego").trim(),
-          userAgent: window.navigator.userAgent,
-          timestamp: new Date().toISOString()
+          mensaje: String(formData.get("mensaje") || "").trim()
         };
 
         if (!payload.nombre || !payload.invitados || !payload.asistencia) {
@@ -1816,34 +1824,40 @@
           return;
         }
 
-        if (!RSVP_WEBAPP_URL || RSVP_WEBAPP_URL.includes("REEMPLAZAR")) {
-          formNote.className = "form-note error";
-          formNote.textContent = "Falta conectar el RSVP con Google Apps Script para enviar correo y guardar la confirmacion.";
-          return;
-        }
-
-        const body = new URLSearchParams();
-        Object.entries(payload).forEach(([key, value]) => body.append(key, value));
+        formData.set("source", "Landing Erika y Diego");
+        formData.set("timestamp", new Date().toISOString());
 
         formNote.className = "form-note";
         formNote.textContent = "Enviando confirmacion...";
 
         try {
-          await fetch(RSVP_WEBAPP_URL, {
-            method: "POST",
-            mode: "no-cors",
+          const response = await fetch(rsvpForm.action, {
+            method: rsvpForm.method,
+            body: formData,
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-            },
-            body: body.toString()
+              Accept: "application/json"
+            }
           });
+
+          if (!response.ok) {
+            let errorMessage = "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
+            try {
+              const data = await response.json();
+              if (data && data.message) {
+                errorMessage = data.message;
+              }
+            } catch (parseError) {
+              // Keep the default message when FormSubmit doesn't return JSON.
+            }
+            throw new Error(errorMessage);
+          }
 
           formNote.className = "form-note success";
           formNote.textContent = `Gracias ${payload.nombre}, tu confirmacion fue enviada.`;
           rsvpForm.reset();
         } catch (error) {
           formNote.className = "form-note error";
-          formNote.textContent = "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
+          formNote.textContent = error.message || "No pudimos enviar tu confirmacion. Intenta de nuevo en unos minutos.";
         }
       });
     </script>
