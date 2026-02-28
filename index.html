@@ -192,12 +192,11 @@
       .hero-content {
         color: #ffffff;
         text-align: center;
-        padding-top: 0;
         min-height: 100vh;
         display: grid;
-        align-content: center;
+        align-content: start;
         justify-items: center;
-        transform: translateY(-14vh);
+        padding-top: clamp(4.5rem, 9vh, 7rem);
       }
 
       .hero .location {
@@ -1259,7 +1258,7 @@
 
         .hero-content {
           min-height: 100vh;
-          transform: translateY(-11vh);
+          padding-top: clamp(5rem, 12vh, 7.5rem);
         }
 
         .hero .title {
