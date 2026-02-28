@@ -695,11 +695,56 @@
         padding: 1.2rem;
       }
 
-      .rsvp-info ul {
-        margin: 0.9rem 0 0;
-        padding-left: 1.05rem;
+      .rsvp-info {
         display: grid;
-        gap: 0.6rem;
+        gap: 1rem;
+      }
+
+      .rsvp-destination-kicker {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.72rem;
+        color: var(--gold);
+      }
+
+      .rsvp-info h3 {
+        font-size: 2.1rem;
+        line-height: 0.98;
+      }
+
+      .rsvp-destination-copy {
+        color: rgba(31, 34, 32, 0.75);
+      }
+
+      .destination-days {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .destination-day {
+        border: 1px solid rgba(31, 34, 32, 0.1);
+        border-radius: 0.9rem;
+        background: rgba(255, 255, 255, 0.72);
+        padding: 0.95rem 0.95rem 1rem;
+      }
+
+      .destination-day span {
+        display: inline-block;
+        margin-bottom: 0.42rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.68rem;
+      }
+
+      .destination-day h4 {
+        font-size: 1.35rem;
+      }
+
+      .destination-day p {
+        margin-top: 0.32rem;
+        color: rgba(31, 34, 32, 0.77);
+        line-height: 1.55;
       }
 
       form {
@@ -1510,13 +1555,41 @@
 
           <div class="rsvp-panel">
             <aside class="rsvp-info reveal">
-              <h3 style="font-size:2rem">Detalles clave</h3>
-              <ul>
-                <li>Fecha: Sábado, 18 de abril de 2026</li>
-                <li>Hora de llegada sugerida: 3:30 PM</li>
-                <li>Lugar: Hacienda Santa Lucía</li>
-                <li>Código de vestimenta: Formal / Black Tie Optional</li>
-              </ul>
+              <span class="rsvp-destination-kicker">Destination Wedding</span>
+              <h3>Tres días para celebrar frente al mar</h3>
+              <p class="rsvp-destination-copy">
+                Si planeas acompañarnos desde el viernes, Tay Beach Hotel será el corazón del fin
+                de semana: llegada, ceremonia y despedida, todo en un mismo destino.
+              </p>
+
+              <div class="destination-days">
+                <article class="destination-day">
+                  <span>Viernes 17</span>
+                  <h4>Llegada a Tay Beach Hotel</h4>
+                  <p>
+                    Check-in, tarde de playa y welcome night para empezar el fin de semana con calma,
+                    mar y buena compañía.
+                  </p>
+                </article>
+
+                <article class="destination-day">
+                  <span>Sábado 18</span>
+                  <h4>Ceremonia y celebración</h4>
+                  <p>
+                    El gran día lo viviremos en Tay Beach Hotel. Te sugerimos llegar con tiempo para
+                    disfrutar el ambiente antes de la ceremonia y seguir con la celebración.
+                  </p>
+                </article>
+
+                <article class="destination-day">
+                  <span>Domingo 19</span>
+                  <h4>Brunch y despedida</h4>
+                  <p>
+                    Un último encuentro para cerrar el fin de semana juntos, compartir tranquilos y
+                    despedirnos frente al mar.
+                  </p>
+                </article>
+              </div>
             </aside>
 
             <div class="rsvp-form-wrap reveal">
