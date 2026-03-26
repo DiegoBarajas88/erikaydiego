@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
       @font-face {
         font-family: "NT Fabulous";
@@ -821,6 +822,56 @@
       .form-note {
         min-height: 1.15rem;
         font-size: 0.85rem;
+      }
+
+      .honeypot-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .turnstile-wrap {
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 0.15rem;
+        padding: 0.9rem;
+        border: 1px solid rgba(31, 34, 32, 0.12);
+        border-radius: 0.9rem;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.82), rgba(232, 218, 195, 0.32));
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .turnstile-wrap.invalid {
+        border-color: rgba(144, 39, 43, 0.28);
+        box-shadow: 0 0 0 3px rgba(144, 39, 43, 0.08);
+      }
+
+      .turnstile-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(31, 34, 32, 0.64);
+      }
+
+      .turnstile-shell {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.35rem;
+        border: 1px solid rgba(31, 34, 32, 0.08);
+        border-radius: 0.78rem;
+        background: rgba(255, 255, 255, 0.84);
+        overflow: hidden;
+      }
+
+      .cf-turnstile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
 
       .success {
@@ -1672,7 +1723,14 @@
                 <input type="hidden" name="source" value="Landing Erika y Diego" />
                 <input type="hidden" name="_subject" value="Nuevo RSVP - Erika y Diego" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+                <input
+                  class="honeypot-field"
+                  type="text"
+                  name="_honey"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
                 <div class="field">
                   <label for="nombre">Nombre completo</label>
                   <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" />
@@ -1704,6 +1762,22 @@
                     name="mensaje"
                     placeholder="Si quieres, déjanos unas palabras..."
                   ></textarea>
+                </div>
+                <div class="turnstile-wrap" id="turnstileWrap">
+                  <span class="turnstile-label">Verificación de seguridad</span>
+                  <div class="turnstile-shell">
+                    <div
+                      class="cf-turnstile"
+                      id="turnstileWidget"
+                      data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+                      data-theme="light"
+                      data-size="flexible"
+                      data-language="es"
+                      data-callback="onTurnstileSuccess"
+                      data-expired-callback="onTurnstileExpired"
+                      data-error-callback="onTurnstileError"
+                    ></div>
+                  </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Enviar RSVP</button>
                 <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
@@ -1972,6 +2046,42 @@
 
       const rsvpForm = document.getElementById("rsvpForm");
       const formNote = document.getElementById("formNote");
+      const turnstileWrap = document.getElementById("turnstileWrap");
+      const turnstileWidget = document.getElementById("turnstileWidget");
+      const turnstileFieldName = "cf-turnstile-response";
+      let turnstileToken = "";
+
+      function setFormMessage(type, message) {
+        formNote.className = type ? `form-note ${type}` : "form-note";
+        formNote.textContent = message;
+      }
+
+      function setTurnstileState(isInvalid) {
+        if (!turnstileWrap) return;
+        turnstileWrap.classList.toggle("invalid", Boolean(isInvalid));
+      }
+
+      function getTurnstileResponse(formData) {
+        return turnstileToken || String(formData.get(turnstileFieldName) || "").trim();
+      }
+
+      window.onTurnstileSuccess = function onTurnstileSuccess(token) {
+        turnstileToken = String(token || "").trim();
+        setTurnstileState(false);
+        if (formNote.classList.contains("error") && formNote.textContent.includes("verificación")) {
+          setFormMessage("", "");
+        }
+      };
+
+      window.onTurnstileExpired = function onTurnstileExpired() {
+        turnstileToken = "";
+        setTurnstileState(true);
+      };
+
+      window.onTurnstileError = function onTurnstileError() {
+        turnstileToken = "";
+        setTurnstileState(true);
+      };
 
       rsvpForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -1982,18 +2092,38 @@
           asistencia: String(formData.get("asistencia") || "").trim(),
           mensaje: String(formData.get("mensaje") || "").trim()
         };
+        const honeypotValue = String(formData.get("_honey") || "").trim();
+        const invitedCount = Number(payload.invitados);
+        const turnstileResponse = getTurnstileResponse(formData);
 
-        if (!payload.nombre || !payload.invitados || !payload.asistencia) {
-          formNote.className = "form-note error";
-          formNote.textContent = "Completa nombre, número de invitados y asistencia.";
+        if (honeypotValue) {
+          setFormMessage("error", "No pudimos validar el envío. Intenta de nuevo en unos minutos.");
           return;
         }
 
+        if (!rsvpForm.checkValidity()) {
+          rsvpForm.reportValidity();
+          setFormMessage("error", "Completa nombre, número de invitados y asistencia.");
+          return;
+        }
+
+        if (!Number.isInteger(invitedCount) || invitedCount < 1 || invitedCount > 8) {
+          setFormMessage("error", "Ingresa un número de invitados válido entre 1 y 8.");
+          return;
+        }
+
+        if (!turnstileResponse) {
+          setTurnstileState(true);
+          setFormMessage("error", "Completa la verificación de seguridad antes de enviar el RSVP.");
+          return;
+        }
+
+        formData.set(turnstileFieldName, turnstileResponse);
         formData.set("source", "Landing Erika y Diego");
         formData.set("timestamp", new Date().toISOString());
 
-        formNote.className = "form-note";
-        formNote.textContent = "Enviando confirmación...";
+        setTurnstileState(false);
+        setFormMessage("", "Enviando confirmación...");
 
         try {
           const response = await fetch(rsvpForm.action, {
@@ -2017,12 +2147,15 @@
             throw new Error(errorMessage);
           }
 
-          formNote.className = "form-note success";
-          formNote.textContent = `Gracias ${payload.nombre}, tu confirmación fue enviada.`;
+          setFormMessage("success", `Gracias ${payload.nombre}, tu confirmación fue enviada.`);
           rsvpForm.reset();
+          turnstileToken = "";
+          setTurnstileState(false);
+          if (window.turnstile && typeof window.turnstile.reset === "function" && turnstileWidget) {
+            window.turnstile.reset(turnstileWidget);
+          }
         } catch (error) {
-          formNote.className = "form-note error";
-          formNote.textContent = error.message || "No pudimos enviar tu confirmación. Intenta de nuevo en unos minutos.";
+          setFormMessage("error", error.message || "No pudimos enviar tu confirmación. Intenta de nuevo en unos minutos.");
         }
       });
     </script>
